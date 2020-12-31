@@ -90,9 +90,9 @@ module.exports = {
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: [ 'dist' ]
     }),
-    // new webpack.optimize.LimitChunkCountPlugin({
-    //   maxChunks: 1
-    // }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    }),
     new webpack.PrefetchPlugin('react')
   ],
   devtool: 'source-map',
