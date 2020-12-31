@@ -7,7 +7,7 @@ import App from './App';
 import intercept from './_utils/interceptor';
 import { Provider } from 'react-redux';
 
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import cssVars from 'css-vars-ponyfill';
 import variables from './_utils/colors.json';
 import { store } from './_store';
@@ -21,20 +21,23 @@ cssVars({
 /** Подключаем интерцептор */
 intercept();
 
+
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
+    <Router>
       <App />
-    </HashRouter>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
 
+
 const Root= () => {
   return <Provider store={store}>
-    <HashRouter>
+    <Router>
       <App/>
-    </HashRouter>
+
+    </Router>
   </Provider>
 }
 

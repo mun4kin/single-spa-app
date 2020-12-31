@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 
-import Root    from './index';
+import Root    from './index_singleSpa';
 
 
 
@@ -14,4 +14,7 @@ const reactLifecycles = singleSpaReact({
 	domElementGetter: () => document.getElementById('content')
 });
 
-export const { bootstrap, mount, unmount } = reactLifecycles;
+
+export const bootstrap = reactLifecycles.bootstrap;
+export const mount = reactLifecycles.mount;
+export const unmount = reactLifecycles.unmount;
