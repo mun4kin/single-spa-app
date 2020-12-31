@@ -1,0 +1,12 @@
+@import './src/styles/mixins';
+.team-item__name{
+  @include s1;
+}
+.team-item__text{
+  @include p1;
+  color:var(--base-500)
+}
+.team-item__text--button{
+  @include p1;
+  color:var(--accent-500)
+}

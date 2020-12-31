@@ -1,0 +1,49 @@
+@import './src/styles/mixins';
+
+.worktime__week-text {
+  @include p1;
+  color: var(--base-500);
+
+}
+
+.worktime__week-tiles {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.worktime__stats {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.worktime__stats-title {
+  @include p1;
+  color: var(--base-500);
+  padding-bottom: 8px;
+}
+
+.worktime__stats-content {
+  @include s1;
+}
+
+.worktime__stats-wrapper {
+  padding-right: 56px;
+  margin-bottom: 32px;
+}
+
+.worktime__stats-wrapper:last-of-type {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .worktime__stats-wrapper {
+    padding-right: 0;
+    width: 50%;
+  }
+}

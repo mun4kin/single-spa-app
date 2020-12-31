@@ -1,0 +1,16 @@
+.select__cause-node {
+  display: flex;
+  align-items: center;
+}
+
+.select__cause-node-icon {
+  margin-left: 8px;
+}
+
+.select__cause-node-icon path {
+  fill: var(--warning-500);
+}
+
+.select__cause-node-text {
+
+}

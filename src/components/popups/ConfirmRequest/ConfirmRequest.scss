@@ -1,0 +1,14 @@
+@import "../../../styles/mixins";
+
+.confirm-request {
+  width: 928px;
+  max-height: 700px;
+}
+
+.confirm-request__text {
+  @include p1;
+}
+
+.confirm-request__schedule {
+  margin-bottom: 32px;
+}

@@ -1,0 +1,48 @@
+@import './src/styles/mixins';
+
+.request-form__title {
+  @include s1;
+  margin-bottom: 24px;
+}
+
+.request-form__group {
+  max-width: 648px;
+  margin-bottom: 32px;
+}
+
+.request-form__group--wide {
+  max-width: 100%;
+}
+
+.request-form__group-date {
+  margin-bottom: 0;
+  margin-right: 42px;
+}
+
+.request-form__group-disabled {
+  opacity: .3;
+}
+
+.request-form__dates-wrapper {
+  max-width: 648px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.request-form__wrapper .request-form__group {
+  padding-right: 40px;
+}
+
+
+.request-form__non-visible {
+  display: none;
+}
+
+.request-form .rf-message{
+  width:100% ;
+}
+.confirm-popup__text{
+  @include p1;
+  padding:32px 0;
+}

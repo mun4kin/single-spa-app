@@ -1,0 +1,59 @@
+@import '../../../styles/mixins';
+
+.work-tile__wrapper {
+  max-width: 648px;
+  width: 100%;
+
+
+}
+
+.work-tile__title ,.work-tile__info-title{
+  @include s1;
+}
+.work-tile__title{
+  padding-bottom: 8px;
+}
+.work-tile__info-body{
+  @include p1;
+}
+.work-tile__info-text{
+  @include p1;
+  padding-bottom: 4px;
+}
+.work-tile__info-text:last-of-type{
+  padding-bottom: 40px;
+}
+.work-tile__info-wrapper{
+  display: flex;
+  padding-bottom: 4px;
+  align-items: center;
+}
+.work-tile__info-wrapper:last-of-type{
+  padding-bottom: 0;
+}
+.work-tile__info-title{
+  padding-right: 4px;
+}
+//.work-tile__initiator{
+//  @include s1;
+//}
+//.work-tile__initiator span{
+//  @include p1;
+//}
+//.work-tile__cause{
+//  @include s1;
+//
+//}
+.work-tile__padding{
+  padding-bottom: 40px;
+}
+.work-tile__tpadding{
+  padding-top: 40px;
+}
+.work-tile__hr-message{
+  @include p1;
+  padding-bottom: 8px;
+}
+.work-tile__hr-message:last-of-type{
+  padding-bottom: 40px;
+}

@@ -1,0 +1,60 @@
+@import "./src/styles/mixins";
+.new-year{
+  background: url("../../../assets/img/snow1.png") repeat-x   1% 5%;
+  background-size: contain;
+
+  .app-header__logo-name {
+    color: var(--base-000);
+  }
+
+  .rf-switch__label {
+    color: var(--base-000);
+  }
+
+  .app__header-feedback {
+    color: var(--base-000);
+  }
+
+  .user__name {
+    color: var(--base-000);
+  }
+}
+
+.new-year:before {
+  content: "";
+  background: url("../../../assets/img/newyear.png");
+  background-size: cover;
+  width: 150px;
+  height: 120px;
+  position: absolute;
+  top:60px
+}
+
+.new-year:after {
+  content: "";
+  background: url("../../../assets/img/newyear.png");
+  background-size: cover;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  width: 150px;
+  height: 120px;
+  position: absolute;
+  right:0;
+  top:60px
+}
+
+.app-header__container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.app__header-feedback {
+  margin-left: 24px;
+  font-size: 15px;
+}

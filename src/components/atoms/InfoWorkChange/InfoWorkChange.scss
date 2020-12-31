@@ -1,0 +1,32 @@
+@import './src/styles/mixins';
+
+.info-tile__wrapper {
+  max-width: 648px;
+  width: 100%;
+  background-color: var(--accent-100);
+  position: relative;
+  margin-left: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+.info-tile__wrapper:before {
+  content: '';
+  top: 0;
+  position: absolute;
+  background-color: var(--accent-300);
+  left: -8px;
+  height: 100%;
+  width: 8px;
+  border-radius: 5px 0 0 5px;
+}
+.info-tile__header {
+  @include s1;
+
+}
+.info-tile__text {
+  @include p1;
+
+}
+.info-tile__header-padding{
+  padding-top: 16px;
+}

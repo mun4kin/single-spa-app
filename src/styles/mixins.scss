@@ -1,0 +1,11 @@
+@import "~root-front/src/styles/mixins";
+
+// Прочее
+
+@mixin round($r) {
+  width: $r;
+  height: $r;
+  min-width: $r;
+  min-height: $r;
+  border-radius: 50%;
+}

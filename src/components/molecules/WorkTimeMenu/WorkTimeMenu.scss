@@ -1,0 +1,19 @@
+@import './src/styles/mixins';
+.time-menu {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.time-menu__button-undo {
+  margin-right: 8px;
+}
+
+.time-menu__button-undo:last-of-type {
+  margin-right: 22px;
+  padding-left: 24px;
+}
+.time-menu__refresh{
+  padding-left: 4px;
+  color:var(--accent-500)
+}

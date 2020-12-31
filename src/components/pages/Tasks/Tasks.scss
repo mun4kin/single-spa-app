@@ -1,0 +1,20 @@
+@import "../../../styles/mixins";
+
+.task__user-name {
+  @include s1;
+  padding-bottom: 4px;
+}
+
+.task__info {
+  @include p1;
+  color: var(--base-500);
+}
+
+.task__card {
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.task__card:last-of-type {
+  margin-bottom: 40px;
+}

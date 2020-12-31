@@ -1,0 +1,20 @@
+@import './src/styles/mixins';
+
+.position__tooltip-main {
+  max-width: 400px;
+}
+.position__tooltip{
+  @include p1;
+}
+.arrow-separator{
+  color: var(--accent-500);
+}
+.position__dep-block {
+  display: flex;
+}
+.position__user-info{
+  margin-left: 8px;
+}
+.rf-tooltip__content ,.rf-tooltip__inner:after{
+  box-shadow: var(--basic-shadow-long);
+}

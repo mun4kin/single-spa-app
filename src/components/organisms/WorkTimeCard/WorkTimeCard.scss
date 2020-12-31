@@ -1,0 +1,26 @@
+@import '../../../styles/mixins';
+
+.worktime__schedule-text {
+  @include h6;
+  padding-bottom: 16px;
+}
+
+.worktime__notify {
+  @include p1;
+  padding: 16px;
+  background: var(--warning-100);
+  max-width: 640px;
+  position: relative;
+  margin-left: 8px;
+}
+
+.worktime__notify:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  left: -8px;
+  top: 0;
+  background: var(--warning-300);
+  width: 8px;
+  border-radius: 8px 0 0 8px;
+}

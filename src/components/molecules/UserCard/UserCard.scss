@@ -1,0 +1,16 @@
+@import './src/styles/mixins';
+.worktime__user-wrapper {
+  display: flex;
+  padding-bottom: 32px;
+}
+.worktime__user-texts {
+  padding-left: 32px;
+}
+.worktime__user-fio {
+  @include h5;
+  padding-bottom: 8px;
+}
+.worktime__user-text {
+  @include p1;
+  color: var(--base-500);
+}

@@ -1,0 +1,30 @@
+.additional__group{
+  max-width: 648px;
+  padding-bottom: 16px;
+}
+
+.additional-opacity {
+  opacity: .5;
+}
+
+
+.additional__fileinput{
+  margin-bottom: 32px;
+}
+.additional__message{
+  margin-bottom: 32px;
+}
+.additional__footer-button:not(:last-of-type) {
+  margin-right: 24px;
+}
+
+.additional__footer-button--cancel {
+  color: var(--danger-500);
+  margin-left: 24px;
+}
+.additional__group textarea{
+  overflow: hidden;
+}
+.additional__message{
+  padding-bottom: 24px;
+}

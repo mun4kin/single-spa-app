@@ -1,0 +1,36 @@
+@import './src/styles/mixins';
+
+.week-tile__text {
+  @include s1;
+  color: var(--accent-500);
+}
+
+.week-tile__text:last-of-type {
+  padding-top: 4px;
+}
+
+.week-tile__wrapper {
+  background-color: var(--accent-200);
+  padding: 8px 12px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  min-width: 134px;
+}
+
+.week-tile__weekend {
+  border-radius: 50%;
+  background-color: rgba(255, 61, 113, 0.08);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  color: var(--danger-300);
+}
+
+.week-tile__weekend:last-of-type {
+  margin-right: 0;
+}

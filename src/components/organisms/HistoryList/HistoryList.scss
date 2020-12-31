@@ -1,0 +1,36 @@
+@import './src/styles/mixins';
+.history-req__user-name {
+  @include s1;
+  padding-bottom: 4px;
+}
+.history-req__info {
+  @include p1;
+  color: var(--base-500);
+}
+.preloader__wrapper {
+  height: 200px;
+}
+.history-req__status {
+  padding: 4px 12px;
+  border-radius: 16px;
+}
+
+.history-req__card {
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.history-req__card:last-of-type {
+  margin-bottom: 40px;
+}
+.history-req__status-green {
+  background: var(--success-200);
+  color: var(--success-600);
+}
+.history-req__status-yellow {
+  background: var(--warning-200);
+  color: var(--warning-600);
+}
+.history-req__status-red {
+  background: var(--danger-200);
+  color: var(--danger-600);
+}

@@ -1,0 +1,36 @@
+@import '../../../styles/mixins';
+
+.home-card__title {
+  @include h6;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.home-card__title-name {
+  margin-right: 24px;
+}
+
+.home-card__title-status {
+  flex-shrink: 0;
+  @include s2;
+  padding: 0 16px;
+  color: var(--warning-600);
+  background: var(--warning-200);
+  border-radius: 12px;
+}
+
+.home-card__text-info {
+  @include p1;
+  color: var(--base-500)
+}
+
+.home-card__text-info:last-of-type {
+  padding-bottom: 8px;
+}
+
+.home-card__button {
+  @include s1;
+  color: var(--accent-500)
+}

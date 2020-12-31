@@ -1,0 +1,50 @@
+@import './src/styles/mixins';
+
+.home__greetings {
+  margin: 20px 0;
+  @include h2;
+}
+
+.home__nav {
+  margin-top: 24px;
+}
+
+.home__search-bar {
+  margin-top: 8px;
+}
+
+.home__page .page-template__header {
+  display: none;
+}
+
+.home__page .rf-tabs__link .rf-button {
+  overflow: visible;
+}
+
+.home__page .rf-tabs__navigation {
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+
+.home__page .rf-tabs__navigation-line {
+  background-color: var(--accent-500);
+  height: 4px;
+  bottom: 4px;
+}
+
+.counter-wrapper {
+  position: relative;
+}
+
+.counter-requests {
+  @include s2;
+  position: absolute;
+  right: -20px;
+  top: -4px;
+  color: var(--base-000);
+  background: var(--complement-700);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 1.5;
+}
