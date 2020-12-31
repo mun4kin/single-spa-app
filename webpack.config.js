@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['src/singleSpaEntry.tsx'],
+  entry: [ 'src/singleSpaEntry.tsx' ],
   output: {
     library: 'single-spa-worktime',
     libraryTarget: 'umd',
@@ -11,17 +11,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    modules: [__dirname, 'node_modules']
+    extensions: [ '.ts', '.tsx', '.js' ],
+    modules: [ __dirname, 'node_modules' ]
   },
   module: {
     rules: [
-      { test: /\.ts$/, exclude: [path.resolve(__dirname, 'node_modules')], loader: 'awesome-typescript-loader' },
-      { test: /\.tsx$/, exclude: [path.resolve(__dirname, 'node_modules')], loader: 'awesome-typescript-loader' },
+      { test: /\.ts$/, exclude: [ path.resolve(__dirname, 'node_modules') ], loader: 'awesome-typescript-loader' },
+      { test: /\.tsx$/, exclude: [ path.resolve(__dirname, 'node_modules') ], loader: 'awesome-typescript-loader' },
       {
         test: /\.js?$/,
-        exclude: [path.resolve(__dirname, 'node_modules')],
-        loader: ['babel-loader', 'eslint-loader']
+        exclude: [ path.resolve(__dirname, 'node_modules') ],
+        loader: [ 'babel-loader', 'eslint-loader' ]
       },
 
       {
@@ -30,17 +30,34 @@ module.exports = {
       },
       {
         test: /\.css|\.scss$/,
-        use: ['style-loader', 'css-loader','resolve-url-loader','sass-loader']
+        use: [ 'style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader' ]
       },
-
       {
-        test: /\.(svg|png|jpg|jpeg|gif|mp3)$/,
-        use: [{
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: [ {
           loader: 'file-loader',
           options: {
-            name: 'assets/[name].[ext]'
+            name: 'assets/img/[name].[ext]'
           }
-        }]
+        } ]
+      },
+      {
+        test: /\.(svg)$/,
+        use: [ {
+          loader: 'file-loader',
+          options: {
+            name: 'assets/svg/[name].[ext]'
+          }
+        } ]
+      },
+      {
+        test: /\.(mp3)$/,
+        use: [ {
+          loader: 'file-loader',
+          options: {
+            name: 'assets/mp3/[name].[ext]'
+          }
+        } ]
 
       },
       {
@@ -62,7 +79,7 @@ module.exports = {
   node: {
     fs: 'empty'
   },
-  stats:{
+  stats: {
     errorDetails: true, //this does show errors
     // colors: false,
     modules: true,
@@ -71,7 +88,7 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: ['dist']
+      cleanAfterEveryBuildPatterns: [ 'dist' ]
     }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
