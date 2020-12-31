@@ -63,7 +63,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "b": "webpack --config webpack.config.js -p"
+    "b": "webpack --config webpack.config.js -p && git add . && git commit -m 'build' &&  git push"
   },
   "eslintConfig": {
     "extends": [
