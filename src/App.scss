@@ -1,0 +1,112 @@
+@import './styles/index';
+
+//css только для ie
+@media screen and (min-width: 0\0) {
+  .rf-time-element , input {
+    letter-spacing: normal;
+  }
+}
+
+
+.winter{
+  overflow-y: scroll;
+
+}
+.winter .page-template__underlay{
+  display: none;
+}
+.app {
+  width: 100%;
+  height: 100%;
+  //background-color: var(--faint-100);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+body {
+  overflow: hidden;
+  min-height: auto;
+}
+
+#root {
+  background-color: var(--faint-100);
+  max-width: 100%;
+}
+
+.page-template__content {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
+
+#root .page-template__content {
+  padding: 0;
+}
+.app__header-content {
+  min-height: 64px;
+}
+//-------------------------------
+.winter .rf-tabs__button--active,
+.winter .page-template__title {
+  color: white!important;;
+}
+
+
+.winter .breadcrumb__link {
+  color: var(--accent-300);
+}
+
+.banner__wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('./assets/img/22959823.jpg') no-repeat;
+  background-size: cover;
+
+}
+
+
+.banner .clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.banner .clouds img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+}
+@keyframes animate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.id1 {
+  animation: animate 24s linear infinite;
+}
+.id2 {
+  animation: animate 48s linear infinite;
+}
+.id3 {
+  animation: animate 72s linear infinite;
+}
+.id4 {
+  animation: animate 96s linear infinite;
+}
+.id5 {
+  animation: animate 120s linear infinite;
+}
