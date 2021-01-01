@@ -94,7 +94,9 @@ module.exports = {
       maxChunks: 1
     }),
     new webpack.PrefetchPlugin('react'),
-    // new webpack.EnvironmentPlugin(['development'])
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
   ],
   devtool: 'source-map',
   externals: [],
