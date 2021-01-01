@@ -1,29 +1,39 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "tags": ["css", ".css", "styled", "styles"]
+      }
     ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "removeComments": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "noEmit": true
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "preserve",
+    "outDir": "build"
   },
-  "files": [
-    "custom.d.ts"
+  "files": ["custom.d.ts"],
+  "exclude": [
+    "**/node_modules/*",
+    "**/_assets/*",
+    "**/build/*",
+    "**/scripts/*",
+    "**/acceptance-tests/*",
+    "**/webpack/*",
+    "**/jest/*",
+    "**/setupTests.ts"
   ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "esModuleInterop": true
 }

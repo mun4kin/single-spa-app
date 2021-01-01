@@ -1,86 +1,87 @@
 {
-  "name": "new",
-  "version": "0.1.0",
+  "name": "global",
+  "version": "2.0.0",
   "private": true,
+  "help_app": "delegation :: worktime :: feedback",
+  "app": "worktime",
+  "scripts": {
+    "start": "yarn --cwd _${npm_package_app} start --env.ENVIRONMENT=development",
+    "i": "yarn && cd _${npm_package_app} && yarn",
+    "if": "yarn && cd _${npm_package_app} && rimraf node_modules && rimraf yarn.lock && yarn && cd ..",
+    "commit": "git add . && npx git-cz",
+    "build:dev": "yarn --cwd _${npm_package_app}   build   --env.ENVIRONMENT=development",
+    "build:prod": "yarn --cwd _${npm_package_app}   build   --env.ENVIRONMENT=production",
+    "build:module": "yarn --cwd _${npm_package_app}   b   --env.ENVIRONMENT=development",
+    "g": "cd ./_${npm_package_app} && node ../node_modules/react-generator-cmd/dist && cd ../",
+    "//": "===========================================================================================================",
+    "rflink": "cd ${npm_package_app} && yarn link root-front && yarn link react && yarn link react-dom && yarn link react-router-dom",
+    "rfunlink": "cd ${npm_package_app} && yarn unlink root-front && yarn unlink react && yarn unlink react-dom && yarn unlink react-router-dom && yarn",
+    "//": "========================mock сервер===============================================================",
+    "win": "npm config set script-shell \"c:\\Program Files\\Git\\bin\\bash.exe\"",
+    "win1": "npm config set script-shell \"C:\\Users\\vtb4037115\\AppData\\Local\\Programs\\Git\\bin\\bash.exe\""
+  },
   "dependencies": {
-    "axios": "^0.21.1",
-    "axios-observable": "^1.1.3",
-    "react": "^17.0.1",
-    "react-audio-player": "0.14.0",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
-    "redux-actions": "^2.6.5",
-    "redux-actions-ts": "^0.1.1",
-    "redux-observable": "^1.2.0",
-    "reselect": "^4.0.0",
-    "root-front": "^1.8.1",
-    "rxjs": "^6.5.4",
-    "single-spa-react": "^3.2.0",
-    "use-reactive-form": "^1.1.6",
-    "yup": "^0.32.8"
+    "css-vars-ponyfill": "^2.3.2"
   },
   "devDependencies": {
-    "//": "=======================TYPES=============================",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/single-spa-react": "^3.0.1",
-    "@types/redux-actions": "^2.6.1",
-    "@types/react-redux": "^7.1.14",
-    "@types/react-router-dom": "^5.1.7",
-    "typescript": "^4.0.3",
-    "//": "===================POLYFillS========================",
-    "css-vars-ponyfill": "^2.4.2",
-    "react-app-polyfill": "^2.0.0",
-    "//": "======================================================",
-    "@babel/helper-builder-react-jsx": "^7.10.4",
-    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
-    "@svgr/webpack": "^5.5.0",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-jest": "^26.6.3",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^5.0.1",
-    "eslint": "^7.16.0",
-    "react-scripts": "4.0.1",
-    "sass": "^1.32.0",
-    "sass-loader": "^10.1.0",
-    "file-loader": "^6.2.0",
-    "resolve-url-loader": "^3.1.2",
-
-    "ttf-loader": "^1.0.2",
-    "single-spa-react": "^3.2.0",
-    "style-loader": "^2.0.0",
-    "redux-devtools-extension": "^2.13.8",
-    "url-loader": "^4.1.1",
-    "web-vitals": "^0.2.4",
-    "webpack-cli": "3.3.10"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "b": "webpack --config webpack.config.js -p && git add . && git commit -m 'build' &&  git push"
+    "husky": "4.2.3",
+    "react-app-polyfill": "^1.0.6",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@commitlint/prompt": "8.2.0",
+    "@ptsecurity/commitlint-config": "1.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "commitizen": "4.0.3",
+    "env-cmd": "10.1.0",
+    "eslint": "^7.15.0",
+    "eslint-config-react-app": "5.0.2",
+    "eslint-loader": "3.0.2",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react-hooks": "1.6.1",
+    "git-cz": "3.3.0",
+    "inquirer": "^7.3.3",
+    "lint-staged": "10.0.7",
+    "prettier": "1.19.1",
+    "react-generator-cmd": "^1.4.1",
+    "request": "2.88.2",
+    "rimraf": "^3.0.2",
+    "typescript": "3.8.2"
   },
   "eslintConfig": {
+    "root": true,
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "./conf/eslint-config/index.js"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "eslintIgnore": [
+    "*.{js,jsx}",
+    "**/__tests__/*",
+    "**/build/*",
+    "**/node_modules/*",
+    "serviceWorker.ts"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --format=table --fix"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "*.{md,json}": [
+      "prettier --write"
     ]
   }
 }
