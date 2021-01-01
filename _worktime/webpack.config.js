@@ -93,7 +93,8 @@ module.exports = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     }),
-    new webpack.PrefetchPlugin('react')
+    new webpack.PrefetchPlugin('react'),
+    // new webpack.EnvironmentPlugin(['development'])
   ],
   devtool: 'source-map',
   externals: [],

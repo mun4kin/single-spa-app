@@ -11,7 +11,7 @@
     "commit": "git add . && npx git-cz",
     "build:dev": "yarn --cwd _${npm_package_app}   build   --env.ENVIRONMENT=development",
     "build:prod": "yarn --cwd _${npm_package_app}   build   --env.ENVIRONMENT=production",
-    "build:module": "yarn --cwd _${npm_package_app}   b   --env.ENVIRONMENT=development",
+    "build:module": "yarn --cwd _${npm_package_app}   b",
     "g": "cd ./_${npm_package_app} && node ../node_modules/react-generator-cmd/dist && cd ../",
     "//": "===========================================================================================================",
     "rflink": "cd ${npm_package_app} && yarn link root-front && yarn link react && yarn link react-dom && yarn link react-router-dom",
