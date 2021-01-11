@@ -7,7 +7,7 @@ import App from './App';
 import intercept from './_utils/interceptor';
 import { Provider } from 'react-redux';
 
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import cssVars from 'css-vars-ponyfill';
 import variables from './_utils/colors.json';
 import { store } from './_store';
