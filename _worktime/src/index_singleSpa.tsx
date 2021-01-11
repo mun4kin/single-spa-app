@@ -24,7 +24,7 @@ intercept();
 const Root = () => {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename='/#'>
         <App />
       </Router>
     </Provider>

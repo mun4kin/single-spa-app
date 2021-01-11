@@ -2,7 +2,7 @@
   "name": "new",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/#/",
+  "homepage": "/#",
   "dependencies": {
     "axios": "^0.21.1",
     "axios-observable": "^1.1.3",
