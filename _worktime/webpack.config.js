@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+require('dotenv').config()
+
 module.exports = {
   entry: [ 'src/singleSpaEntry.tsx' ],
   output: {
@@ -95,7 +97,9 @@ module.exports = {
     }),
     new webpack.PrefetchPlugin('react'),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
+      }
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
