@@ -24,7 +24,7 @@ intercept();
 const Root = () => {
   return (
     <Provider store={store}>
-      <Router basename='/test/worktime'>
+      <Router basename='/#worktime'>
         <App />
       </Router>
     </Provider>
