@@ -23,18 +23,13 @@ cssVars({
 intercept();
 
 const Root = (props: any) => {
-  try {
-    return (
-      <Provider store={store}>
-        <Router basename={props.basename || '/'}>
-          <App {...props} />
-        </Router>
-      </Provider>
-    );
-  } catch (error) {
-    console.log(error);
-    return <Preloader size='large' />;
-  }
+  return (
+    <Provider store={store}>
+      <Router basename={props.basename || '/'}>
+        <App {...props} />
+      </Router>
+    </Provider>
+  );
 };
 
 export default Root;

@@ -9,7 +9,11 @@ const reactLifecycles = singleSpaReact({
   ReactDOM,
   rootComponent: Root,
   // @ts-ignore
-  domElementGetter: () => document.getElementById('content')
+  domElementGetter: () => document.getElementById('content'),
+  errorBoundary(err, info, props) {
+    // https://reactjs.org/docs/error-boundaries.html
+    return <div>This renders when a catastrophic error occurs</div>;
+  }
 });
 
 export const bootstrap = reactLifecycles.bootstrap;
