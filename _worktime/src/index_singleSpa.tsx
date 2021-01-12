@@ -10,6 +10,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import cssVars from 'css-vars-ponyfill';
 import variables from './_utils/colors.json';
 import { store } from './_store';
+import { Preloader } from 'root-front';
 
 /** Подключаем цвета для IE */
 cssVars({
@@ -22,13 +23,18 @@ cssVars({
 intercept();
 
 const Root = (props: any) => {
-  return (
-    <Provider store={store}>
-      <Router basename='/#/worktime'>
-        <App {...props} />
-      </Router>
-    </Provider>
-  );
+  try {
+    return (
+      <Provider store={store}>
+        <Router basename={props.basename || '/'}>
+          <App {...props} />
+        </Router>
+      </Provider>
+    );
+  } catch (error) {
+    console.log(error);
+    return <Preloader size='large' />;
+  }
 };
 
 export default Root;
