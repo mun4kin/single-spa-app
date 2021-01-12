@@ -22,12 +22,10 @@ cssVars({
 intercept();
 
 const Root = (props: any) => {
-  console.log(props);
-
   return (
     <Provider store={store}>
       <Router basename='/#/worktime'>
-        <App />
+        <App {...props} />
       </Router>
     </Provider>
   );

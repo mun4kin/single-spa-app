@@ -6,7 +6,7 @@ import Router from './router/Router';
 import { Notifications, PopupMaker } from 'root-front';
 import AppHeader from './components/organisms/AppHeader';
 import { useDispatch, useSelector } from 'react-redux';
-import { userInfoPending } from './_store/actions/user.actions';
+import { userInfoPending, userInfoSuccess } from './_store/actions/user.actions';
 import cloud1 from './assets/img/cloud1.png';
 import cloud2 from './assets/img/cloud2.png';
 import cloud3 from './assets/img/cloud3.png';
@@ -21,15 +21,23 @@ import { takeWhile } from 'rxjs/operators';
 import sound from './assets/mp3/1.mp3';
 import ReactAudioPlayer from 'react-audio-player';
 
-const App = () => {
+const App = (props: any) => {
   // -------------------------------------------------------------------------------------------------------------------
   const dispatch = useDispatch();
   // при входе сразу запрашиваем кто зашел и справочники
   const [ready, setReady] = useState(false);
   const stop = useSelector((state: IStore) => state.stopApp.stopApplication);
+
+  useEffect(() => {
+    if (props.user) {
+      dispatch(userInfoSuccess(props.user));
+    } else {
+      dispatch(userInfoPending());
+    }
+  }, [props.user]);
+
   useEffect(() => {
     if (!stop) {
-      dispatch(userInfoPending());
       dispatch(getTeamPending());
       dispatch(getHistoryPending());
       dispatch(getTasksPending());
