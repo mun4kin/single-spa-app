@@ -1,7 +1,6 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 
 import intercept from './_utils/interceptor';
@@ -18,13 +17,16 @@ cssVars({
   include: 'style,link[rel="stylesheet"]:not([href*="//"])',
   variables
 });
+
 /** Подключаем интерцептор */
 intercept();
 
-const Root = () => {
+const Root = (props: any) => {
+  console.log(props);
+
   return (
     <Provider store={store}>
-      <Router basename='#/worktime'>
+      <Router basename='/#/worktime'>
         <App />
       </Router>
     </Provider>
