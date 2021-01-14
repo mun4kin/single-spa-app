@@ -9972,10 +9972,10 @@ rollup@^1.31.1:
     "@types/node" "*"
     acorn "^7.1.0"
 
-root-front@^1.9.3:
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/root-front/-/root-front-1.9.3.tgz#0029018f61928f10086ddef35af9e92d62e1c662"
-  integrity sha512-OxYjOWtS0weNZ7Q2E/L5c4gwevJaVxT8aPINzwqPzW/XlcbcLwbhcTYqzwmktmRWeNC4BCl9aSC5a/xiWJ4a8A==
+root-front@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/root-front/-/root-front-1.9.4.tgz#faf13adf8c79d33fbfe7bfbb8e230da051ad6290"
+  integrity sha512-/LtVM+e1ea8oIb/47nsEEsMv42s5XITSO9zQN1JrmYmFPr92/5CLxXOx9B5DWlua2wn22ve0Swc5emk883v20A==
   dependencies:
     detect-browser "^5.2.0"
     react-date-picker "^8.0.1"
