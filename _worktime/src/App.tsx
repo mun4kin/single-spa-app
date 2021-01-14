@@ -36,26 +36,22 @@ const App = (props: any) => {
     }
   }, [props.user]);
 
-  useEffect(() => {
-    if (!stop) {
-      dispatch(getTeamPending());
-      dispatch(getHistoryPending());
-      dispatch(getTasksPending());
-      //запрашиваем раз в 20 сек изменения
-    }
-    const tmp = interval(20000)
-      .pipe(takeWhile((_) => !stop))
-      .subscribe(() => {
-        dispatch(getTasksPending());
-      });
-    return () => {
-      try {
-        tmp.unsubscribe();
-      } catch (e) {
-        console.log(e);
-      }
-    };
-  }, [stop]);
+  // useEffect(() => {
+  //   if (!stop) {
+  //     dispatch(getTeamPending());
+  //     dispatch(getHistoryPending());
+  //     dispatch(getTasksPending());
+  //     //запрашиваем раз в 20 сек изменения
+  //   }
+  //   const tmp = interval(20000)
+  //     .pipe(takeWhile((_) => !stop))
+  //     .subscribe(() => {
+  //       dispatch(getTasksPending());
+  //     });
+  //   return () => {
+  //     tmp.unsubscribe();
+  //   };
+  // }, [stop]);
 
   return (
     <>
