@@ -8,9 +8,17 @@ const reactLifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Root,
-  // @ts-ignore
-  domElementGetter: () => document.getElementById('content'),
+  domElementGetter: () => {
+    const div = document.createElement('div');
+    div.id = 'container';
+    return div;
+  },
   errorBoundary(err, info, props) {
+    console.log('---------------');
+    console.log(err);
+    console.log(info);
+    console.log(props);
+    console.log('---------------');
     // https://reactjs.org/docs/error-boundaries.html
     return <div>This renders when a catastrophic error occurs</div>;
   }
