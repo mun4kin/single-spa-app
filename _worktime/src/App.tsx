@@ -72,8 +72,8 @@ const App = (props: any) => {
       <div className={`app ${ready ? 'winter' : ''}`}>
         <AppHeader setReady={setReady} />
         <Router routes={routes} />
-        {/*<Notifications />*/}
-        {/*<PopupMaker />*/}
+        <Notifications />
+        <PopupMaker />
       </div>
     </>
   );
