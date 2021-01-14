@@ -48,7 +48,13 @@ const App = (props: any) => {
       .subscribe(() => {
         dispatch(getTasksPending());
       });
-    return () => tmp.unsubscribe();
+    return () => {
+      try {
+        tmp.unsubscribe();
+      } catch (e) {
+        console.log(e);
+      }
+    };
   }, [stop]);
 
   return (
