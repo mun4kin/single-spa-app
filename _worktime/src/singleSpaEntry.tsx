@@ -9,8 +9,11 @@ const reactLifecycles = singleSpaReact({
   ReactDOM,
   rootComponent: Root,
   domElementGetter: () => {
-    const div = document.createElement('div');
-    div.id = 'container';
+    let div = document.getElementById('container');
+    if (!div) {
+      div = document.createElement('div');
+      div.id = 'container';
+    }
     return div;
   },
   errorBoundary(err, info, props) {
