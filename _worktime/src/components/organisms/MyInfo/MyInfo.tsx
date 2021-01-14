@@ -16,7 +16,7 @@ const MyInfo: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     setTitle('График рабочего времени - Мой график');
-    dispatch(getMyWorkTimePending());
+    // dispatch(getMyWorkTimePending());
   }, []);
 
   const { user, worktime }: { user: IUser | null; worktime: IBasicWorkTime | null } = useSelector(userWithWorkTime);
