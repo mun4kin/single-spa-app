@@ -24,11 +24,12 @@ intercept();
 
 const Root = (props: any) => {
   return (
-    <Provider store={store}>
-      <Router basename={props.basename || '/'}>
-        <App {...props} />
-      </Router>
-    </Provider>
+    <div>This is a Test: {props?.user?.id || 'No Id'}</div>
+    // <Provider store={store}>
+    //   <Router basename={props.basename || '/'}>
+    //     <App {...props} />
+    //   </Router>
+    // </Provider>
   );
 };
 
