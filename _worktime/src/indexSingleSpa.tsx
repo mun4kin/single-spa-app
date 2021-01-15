@@ -22,6 +22,11 @@ cssVars({
 intercept();
 
 const Root = (props: any) => {
+  console.log('ROOT');
+  console.log(process.env.REACT_APP_HOST);
+  console.log(process.env.REACT_APP_BASIC_AUTH);
+  console.log(process.env.REACT_APP_LOCAL);
+
   return (
     <Provider store={store}>
       <Router basename={props.basename || '/'}>

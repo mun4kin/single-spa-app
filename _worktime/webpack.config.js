@@ -18,6 +18,8 @@ const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
   return prev;
 }, {});
 
+console.log(envKeys)
+
 module.exports = {
   entry: ['src/singleSpaEntry.tsx'],
   output: {
