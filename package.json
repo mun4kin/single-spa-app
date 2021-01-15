@@ -49,6 +49,7 @@
     "react-generator-cmd": "^1.4.1",
     "request": "2.88.2",
     "rimraf": "^3.0.2",
+    "svg-loader": "^0.0.2",
     "typescript": "3.8.2"
   },
   "eslintConfig": {
