@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Notifications.scss';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Variant } from 'root-front/dist/types';
 import { Notification } from 'root-front';
-import { takeUntil } from 'rxjs/operators';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +11,7 @@ let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INot
 
 /** Удалить уведомление */
 export const removeNotification = (id?: number) => {
-  if (notifications$$.closed || notifications$$.isStopped) {
+  if (notifications$$.closed) {
     return;
   }
 
@@ -31,7 +30,7 @@ export const removeNotification = (id?: number) => {
 
 /** Добавить уведомление */
 export const sendNotification = (message: INotification, delay = 4000) => {
-  if (notifications$$.closed || notifications$$.isStopped) {
+  if (notifications$$.closed) {
     return;
   }
 
@@ -65,18 +64,7 @@ export interface INotification {
 }
 
 const Notifications = () => {
-  /** Флаг по которому оставновить подписку */
-  const obstacle = useRef<Subject<boolean>>(new Subject());
-
-  const [sub, setSub] = useState<BehaviorSubject<INotification[]> | null>(null);
-
-  useEffect(() => {
-    if (notifications$$.closed) {
-      notifications$$ = new BehaviorSubject<INotification[]>([]);
-    }
-
-    setSub(notifications$$);
-  }, []);
+  const [sub] = useState<BehaviorSubject<INotification[]>>(notifications$$);
 
   /** Список уведомлений */
   const [notifications, setNotifications] = useState<INotification[]>([]);
@@ -85,18 +73,12 @@ const Notifications = () => {
 
   /** Подписываемся на список уведомлений */
   useEffect(() => {
-    if (!sub || sub.closed) {
-      return;
-    }
-
-    const until = obstacle.current;
-
-    sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
+    sub.subscribe((data: INotification[]) => {
       setNotifications(data);
     });
 
     return () => {
-      until.next(true);
+      sub.unsubscribe();
     };
   }, [sub]);
 
