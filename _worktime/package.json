@@ -63,7 +63,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "b": "webpack --env.ENVIRONMENT=development --config webpack.config.js"
+    "b": "webpack --env.ENVIRONMENT=production --config webpack.config.js"
   },
   "eslintConfig": {
     "extends": [
