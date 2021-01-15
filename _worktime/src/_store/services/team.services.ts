@@ -8,6 +8,7 @@ import { team } from '../mocks/team.mock';
 /** Получение члнов команды */
 export const getTeam = (): Observable<ITeam[]> => {
   if (process.env['REACT_APP_LOCAL'] === '1') {
+    console.log(team);
     return of(team as ITeam[]);
   } else {
     return Axios.get(
