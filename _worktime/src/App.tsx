@@ -20,6 +20,7 @@ import { takeWhile } from 'rxjs/operators';
 // @ts-ignore
 import sound from './assets/mp3/1.mp3';
 import ReactAudioPlayer from 'react-audio-player';
+import Notifications from './components/atoms/Notifications';
 
 const App = (props: any) => {
   // -------------------------------------------------------------------------------------------------------------------
@@ -72,7 +73,7 @@ const App = (props: any) => {
       <div className={`app ${ready ? 'winter' : ''}`}>
         <AppHeader setReady={setReady} />
         <Router routes={routes} />
-        {/*<Notifications />*/}
+        <Notifications />
         {/*<PopupMaker />*/}
       </div>
     </>
