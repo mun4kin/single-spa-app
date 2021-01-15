@@ -83,22 +83,22 @@ const Notifications = () => {
 
   // -------------------------------------------------------------------------------------------------------------------
 
-  /** Подписываемся на список уведомлений */
-  useEffect(() => {
-    if (!sub || sub.closed) {
-      return;
-    }
-
-    const until = obstacle.current;
-
-    sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
-      setNotifications(data);
-    });
-
-    // return () => {
-    //   until.next(true);
-    // };
-  }, [sub]);
+  // /** Подписываемся на список уведомлений */
+  // useEffect(() => {
+  //   if (!sub || sub.closed) {
+  //     return;
+  //   }
+  //
+  //   const until = obstacle.current;
+  //
+  //   sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
+  //     setNotifications(data);
+  //   });
+  //
+  //   return () => {
+  //     until.next(true);
+  //   };
+  // }, [sub]);
 
   // -------------------------------------------------------------------------------------------------------------------
   /** Список уведомлений TSX */
