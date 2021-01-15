@@ -23,10 +23,10 @@ import ReactAudioPlayer from 'react-audio-player';
 import Notifications from './components/atoms/Notifications';
 import { INotification } from './components/atoms/Notifications/Notifications';
 
-let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INotification[]>([]);
-console.log(notifications$$);
-
 const App = (props: any) => {
+  let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INotification[]>([]);
+  console.log(notifications$$);
+
   // -------------------------------------------------------------------------------------------------------------------
   const dispatch = useDispatch();
   // при входе сразу запрашиваем кто зашел и справочники
