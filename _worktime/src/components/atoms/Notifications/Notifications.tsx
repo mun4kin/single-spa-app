@@ -65,13 +65,10 @@ export interface INotification {
 
 const Notifications = () => {
   const [sub] = useState<BehaviorSubject<INotification[]>>(() => {
-    console.log('---useState------');
-    console.log('useState', notifications$$);
     if (notifications$$.closed || notifications$$.isStopped) {
       notifications$$ = new BehaviorSubject<INotification[]>([]);
     }
 
-    console.log('useState: return', notifications$$);
     return notifications$$;
   });
 
@@ -82,21 +79,24 @@ const Notifications = () => {
 
   /** Подписываемся на список уведомлений */
   useEffect(() => {
-    console.log('---useEffect------');
-    console.log('useEffect:sub', sub);
-    console.log('useEffect:sub', notifications$$);
-    sub.subscribe((data: INotification[]) => {
-      console.log('---subscribe------');
-      console.log('useEffect:sub:subscribe', sub);
-      console.log('useEffect:sub', notifications$$);
-      setNotifications(data);
-    });
+    console.log(sub.closed);
+    sub.subscribe(
+      (data: INotification[]) => {
+        setNotifications(data);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('closed');
+      }
+    );
 
     return () => {
-      console.log('useEffect:sub:unsubscribe');
+      console.log('unsubscribe');
       sub.unsubscribe();
     };
-  }, []);
+  }, [sub]);
 
   // -------------------------------------------------------------------------------------------------------------------
   /** Список уведомлений TSX */
