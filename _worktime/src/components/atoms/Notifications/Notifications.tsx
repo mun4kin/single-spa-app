@@ -12,21 +12,21 @@ let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INot
 
 /** Удалить уведомление */
 export const removeNotification = (id?: number) => {
-  if (notifications$$.closed || notifications$$.isStopped) {
-    return;
-  }
-
-  let tmp = [...notifications$$.getValue()];
-
-  if (tmp.length > 0) {
-    if (id !== undefined) {
-      tmp = tmp.filter((n: INotification) => n.id !== id);
-    } else {
-      tmp.shift();
-    }
-
-    notifications$$.next(tmp);
-  }
+  // if (notifications$$.closed || notifications$$.isStopped) {
+  //   return;
+  // }
+  //
+  // let tmp = [...notifications$$.getValue()];
+  //
+  // if (tmp.length > 0) {
+  //   if (id !== undefined) {
+  //     tmp = tmp.filter((n: INotification) => n.id !== id);
+  //   } else {
+  //     tmp.shift();
+  //   }
+  //
+  //   notifications$$.next(tmp);
+  // }
 };
 
 /** Добавить уведомление */
