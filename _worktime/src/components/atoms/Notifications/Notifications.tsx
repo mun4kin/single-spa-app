@@ -68,13 +68,15 @@ const Notifications = () => {
   /** Флаг по которому оставновить подписку */
   const obstacle = useRef<Subject<boolean>>(new Subject());
 
-  const [sub] = useState<BehaviorSubject<INotification[]>>(() => {
-    if (notifications$$.closed || notifications$$.isStopped) {
+  const [sub, setSub] = useState<BehaviorSubject<INotification[]> | null>(null);
+
+  useEffect(() => {
+    if (notifications$$.closed) {
       notifications$$ = new BehaviorSubject<INotification[]>([]);
     }
 
-    return notifications$$;
-  });
+    setSub(notifications$$);
+  }, []);
 
   /** Список уведомлений */
   const [notifications, setNotifications] = useState<INotification[]>([]);
@@ -83,6 +85,10 @@ const Notifications = () => {
 
   /** Подписываемся на список уведомлений */
   useEffect(() => {
+    if (!sub || sub.closed) {
+      return;
+    }
+
     const until = obstacle.current;
 
     sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
