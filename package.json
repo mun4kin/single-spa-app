@@ -15,8 +15,8 @@
     "build:module": "yarn --cwd _${npm_package_app}   b",
     "g": "cd ./_${npm_package_app} && node ../node_modules/react-generator-cmd/dist && cd ../",
     "//": "========================mock сервер===============================================================",
-    "rflink": "cd _${npm_package_app} && yarn link && cd node_modules/react && yarn link && cd ../react-router-dom && yarn link",
-    "rfunlink": "cd _${npm_package_app} && yarn unlink && cd node_modules/react && yarn unlink && cd ../react-router-dom && yarn unlink",
+    "rflink": "cd _${npm_package_app} && yarn link && cd node_modules/react && yarn link && cd ../react-router-dom && yarn link&& cd ../react-dom && yarn link",
+    "rfunlink": "cd _${npm_package_app} && yarn unlink && cd node_modules/react && yarn unlink && cd ../react-router-dom && yarn unlink && cd ../react-dom && yarn unlink",
     "win": "npm config set script-shell \"c:\\Program Files\\Git\\bin\\bash.exe\"",
     "win1": "npm config set script-shell \"C:\\Users\\vtb4037115\\AppData\\Local\\Programs\\Git\\bin\\bash.exe\""
   },
