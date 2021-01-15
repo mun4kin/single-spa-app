@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Notifications.scss';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Variant } from 'root-front/dist/types';
 import { Notification } from 'root-front';
+import { takeUntil } from 'rxjs/operators';
 
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -64,6 +65,9 @@ export interface INotification {
 }
 
 const Notifications = () => {
+  /** Флаг по которому оставновить подписку */
+  const obstacle = useRef<Subject<boolean>>(new Subject());
+
   const [sub] = useState<BehaviorSubject<INotification[]>>(() => {
     if (notifications$$.closed || notifications$$.isStopped) {
       notifications$$ = new BehaviorSubject<INotification[]>([]);
@@ -79,22 +83,14 @@ const Notifications = () => {
 
   /** Подписываемся на список уведомлений */
   useEffect(() => {
-    console.log(sub.closed);
-    sub.subscribe(
-      (data: INotification[]) => {
-        setNotifications(data);
-      },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        console.log('closed');
-      }
-    );
+    const until = obstacle.current;
+
+    sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
+      setNotifications(data);
+    });
 
     return () => {
-      console.log('unsubscribe');
-      sub.unsubscribe();
+      until.next(true);
     };
   }, [sub]);
 
