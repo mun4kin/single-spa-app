@@ -10,17 +10,20 @@ interface IProps {
 
 const Position: React.FC<IProps> = ({ department, path }: IProps) => {
   // -------------------------------------------------------------------------------------------------------------------
-  const pathHTML = path.split(' -> ').map((item, i) => (
-    <React.Fragment key={i}>
-      {!!i && (
-        <span key={i} className='arrow-separator'>
-          {' '}
-          {` > `}
-        </span>
-      )}
-      <span key={i + 1000}> {item}</span>
-    </React.Fragment>
-  ));
+
+  const pathHTML = path
+    .split(' -> ')
+    .filter((s: string) => s)
+    .map((item, i) => (
+      <div key={i}>
+        {!!i && (
+          <span key={i} className='arrow-separator'>
+            {` > `}
+          </span>
+        )}
+        <span key={i + 1000}> {item}</span>
+      </div>
+    ));
   return (
     <div className='position__dep-block'>
       <div className='position__user-text'>{department}</div>
