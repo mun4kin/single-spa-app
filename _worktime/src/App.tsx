@@ -3,7 +3,6 @@ import './App.scss';
 
 import { routes } from './router/config';
 import Router from './router/Router';
-import { PopupMaker } from 'root-front';
 import AppHeader from './components/organisms/AppHeader';
 import { useDispatch, useSelector } from 'react-redux';
 import { userInfoPending, userInfoSuccess } from './_store/actions/user.actions';
@@ -20,7 +19,7 @@ import { takeWhile } from 'rxjs/operators';
 // @ts-ignore
 import sound from './assets/mp3/1.mp3';
 import ReactAudioPlayer from 'react-audio-player';
-import Notifications from './components/atoms/Notifications';
+import { Notifications, PopupMaker } from 'root-front';
 
 const App = (props: any) => {
   // -------------------------------------------------------------------------------------------------------------------
@@ -74,7 +73,7 @@ const App = (props: any) => {
         <AppHeader setReady={setReady} />
         <Router routes={routes} />
         <Notifications />
-        {/*<PopupMaker />*/}
+        <PopupMaker />
       </div>
     </>
   );

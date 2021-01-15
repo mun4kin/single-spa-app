@@ -1,7 +1,7 @@
 import { createTypedAction } from 'redux-actions-ts';
 
 import { of } from 'rxjs';
-import { sendNotification } from '../../components/atoms/Notifications';
+import { sendNotification } from 'root-front';
 
 export const errorActions = createTypedAction<void>('[Error] ===!!!!!!!!!===');
 
