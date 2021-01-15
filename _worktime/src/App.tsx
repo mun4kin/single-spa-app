@@ -24,20 +24,20 @@ import Notifications from './components/atoms/Notifications';
 import { INotification } from './components/atoms/Notifications/Notifications';
 
 const App = (props: any) => {
-  // -------------------------------------------------------------------------------------------------------------------
-  const dispatch = useDispatch();
-  // при входе сразу запрашиваем кто зашел и справочники
-  const [ready, setReady] = useState(false);
-  const stop = useSelector((state: IStore) => state.stopApp.stopApplication);
-
-  useEffect(() => {
-    if (props.user) {
-      dispatch(userInfoSuccess(props.user));
-    } else {
-      dispatch(userInfoPending());
-    }
-  }, [props.user]);
-
+  // // -------------------------------------------------------------------------------------------------------------------
+  // const dispatch = useDispatch();
+  // // при входе сразу запрашиваем кто зашел и справочники
+  // const [ready, setReady] = useState(false);
+  // const stop = useSelector((state: IStore) => state.stopApp.stopApplication);
+  //
+  // useEffect(() => {
+  //   if (props.user) {
+  //     dispatch(userInfoSuccess(props.user));
+  //   } else {
+  //     dispatch(userInfoPending());
+  //   }
+  // }, [props.user]);
+  //
   // useEffect(() => {
   //   if (!stop) {
   //     dispatch(getTeamPending());
@@ -55,28 +55,37 @@ const App = (props: any) => {
   //   };
   // }, [stop]);
 
+  const [state, setState] = useState(false);
+
+  useEffect(() => {
+    console.log(1);
+  }, [state]);
+
+  const selector = useSelector((store: IStore) => store);
+
   return (
     <>
-      {ready && (
-        <div className='banner__wrapper'>
-          <ReactAudioPlayer src={sound} volume={0.1} autoPlay={true} />
-          <div className='banner'>
-            <div className='clouds'>
-              <img alt='' className='id1' src={cloud1} />
-              <img alt='' className='id2' src={cloud2} />
-              <img alt='' className='id3' src={cloud3} />
-              <img alt='' className='id4' src={cloud4} />
-              <img alt='' className='id5' src={cloud5} />
-            </div>
-          </div>
-        </div>
-      )}
-      <div className={`app ${ready ? 'winter' : ''}`}>
-        <AppHeader setReady={setReady} />
-        <Router routes={routes} />
-        {/*<Notifications />*/}
-        <PopupMaker />
-      </div>
+      <h1>Simple App Worktime </h1>
+      {/*{ready && (*/}
+      {/*  <div className='banner__wrapper'>*/}
+      {/*    <ReactAudioPlayer src={sound} volume={0.1} autoPlay={true} />*/}
+      {/*    <div className='banner'>*/}
+      {/*      <div className='clouds'>*/}
+      {/*        <img alt='' className='id1' src={cloud1} />*/}
+      {/*        <img alt='' className='id2' src={cloud2} />*/}
+      {/*        <img alt='' className='id3' src={cloud3} />*/}
+      {/*        <img alt='' className='id4' src={cloud4} />*/}
+      {/*        <img alt='' className='id5' src={cloud5} />*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*)}*/}
+      {/*<div className={`app ${ready ? 'winter' : ''}`}>*/}
+      {/*  <AppHeader setReady={setReady} />*/}
+      {/*  <Router routes={routes} />*/}
+      {/*  /!*<Notifications />*!/*/}
+      {/*  <PopupMaker />*/}
+      {/*</div>*/}
     </>
   );
 };
