@@ -11,7 +11,7 @@ let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INot
 
 /** Удалить уведомление */
 export const removeNotification = (id?: number) => {
-  console.log('removeNotification');
+  console.log('removeNotification', notifications$$);
   if (notifications$$.closed || notifications$$.isStopped) {
     return;
   }
@@ -31,7 +31,7 @@ export const removeNotification = (id?: number) => {
 
 /** Добавить уведомление */
 export const sendNotification = (message: INotification, delay = 4000) => {
-  console.log('sendNotification');
+  console.log('sendNotification', notifications$$);
   if (notifications$$.closed || notifications$$.isStopped) {
     return;
   }
@@ -67,11 +67,12 @@ export interface INotification {
 
 const Notifications = () => {
   const [sub] = useState<BehaviorSubject<INotification[]>>(() => {
-    debugger;
+    console.log('useState', notifications$$);
     if (notifications$$.closed || notifications$$.isStopped) {
       notifications$$ = new BehaviorSubject<INotification[]>([]);
     }
 
+    console.log('useState: return', notifications$$);
     return notifications$$;
   });
 
@@ -82,12 +83,14 @@ const Notifications = () => {
 
   /** Подписываемся на список уведомлений */
   useEffect(() => {
-    debugger;
+    console.log('useEffect:sub', sub);
     sub.subscribe((data: INotification[]) => {
+      console.log('useEffect:sub:subscribe', data);
       setNotifications(data);
     });
 
     return () => {
+      console.log('useEffect:sub:unsubscribe');
       sub.unsubscribe();
     };
   }, []);
