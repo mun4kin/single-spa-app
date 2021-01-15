@@ -24,9 +24,6 @@ import Notifications from './components/atoms/Notifications';
 import { INotification } from './components/atoms/Notifications/Notifications';
 
 const App = (props: any) => {
-  let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INotification[]>([]);
-  console.log(notifications$$);
-
   // -------------------------------------------------------------------------------------------------------------------
   const dispatch = useDispatch();
   // при входе сразу запрашиваем кто зашел и справочники
