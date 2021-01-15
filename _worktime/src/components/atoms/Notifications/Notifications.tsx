@@ -31,20 +31,20 @@ export const removeNotification = (id?: number) => {
 
 /** Добавить уведомление */
 export const sendNotification = (message: INotification, delay = 4000) => {
-  if (notifications$$.closed || notifications$$.isStopped) {
-    return;
-  }
-
-  const tmp = [...notifications$$.getValue()];
-
-  tmp.push({
-    ...message,
-    id: message.id || Date.now()
-  });
-  notifications$$.next(tmp);
-  setTimeout(() => {
-    removeNotification(message.id);
-  }, delay);
+  // if (notifications$$.closed || notifications$$.isStopped) {
+  //   return;
+  // }
+  //
+  // const tmp = [...notifications$$.getValue()];
+  //
+  // tmp.push({
+  //   ...message,
+  //   id: message.id || Date.now()
+  // });
+  // notifications$$.next(tmp);
+  // setTimeout(() => {
+  //   removeNotification(message.id);
+  // }, delay);
 };
 
 // ----Компонент--------------------------------------------------------------------------------------------------------
