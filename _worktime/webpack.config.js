@@ -1,8 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const dotenv = require('dotenv');
 
-const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+const argv = process.argv.find(arg => ~arg.indexOf('--env.ENVIRONMENT')).split('=');
+const env = argv[1] || 'development';
+
+// Create the fallback path (the production .env)
+const basePath = `${path.join(__dirname)}/.env.${env}`;
+
+// Set the path parameter in the dotenv config
+const fileEnv = dotenv.config({ path: basePath }).parsed;
+
+// reduce it to a nice object, the same as before (but with the variables from the file)
+const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
+  return prev;
+}, {});
 
 module.exports = {
   entry: ['src/singleSpaEntry.tsx'],
@@ -104,10 +118,7 @@ module.exports = {
       maxChunks: 1
     }),
     new webpack.PrefetchPlugin('react'),
-    new webpack.DefinePlugin({
-      'process.env': dotenv.parsed,
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    }),
+    new webpack.DefinePlugin(envKeys),
     new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   devtool: 'source-map',
