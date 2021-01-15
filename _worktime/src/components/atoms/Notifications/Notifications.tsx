@@ -95,9 +95,9 @@ const Notifications = () => {
       setNotifications(data);
     });
 
-    return () => {
-      until.next(true);
-    };
+    // return () => {
+    //   until.next(true);
+    // };
   }, [sub]);
 
   // -------------------------------------------------------------------------------------------------------------------
