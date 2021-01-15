@@ -12,39 +12,39 @@ let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INot
 
 /** Удалить уведомление */
 export const removeNotification = (id?: number) => {
-  // if (notifications$$.closed || notifications$$.isStopped) {
-  //   return;
-  // }
-  //
-  // let tmp = [...notifications$$.getValue()];
-  //
-  // if (tmp.length > 0) {
-  //   if (id !== undefined) {
-  //     tmp = tmp.filter((n: INotification) => n.id !== id);
-  //   } else {
-  //     tmp.shift();
-  //   }
-  //
-  //   notifications$$.next(tmp);
-  // }
+  if (notifications$$.closed || notifications$$.isStopped) {
+    return;
+  }
+
+  let tmp = [...notifications$$.getValue()];
+
+  if (tmp.length > 0) {
+    if (id !== undefined) {
+      tmp = tmp.filter((n: INotification) => n.id !== id);
+    } else {
+      tmp.shift();
+    }
+
+    notifications$$.next(tmp);
+  }
 };
 
 /** Добавить уведомление */
 export const sendNotification = (message: INotification, delay = 4000) => {
-  // if (notifications$$.closed || notifications$$.isStopped) {
-  //   return;
-  // }
-  //
-  // const tmp = [...notifications$$.getValue()];
-  //
-  // tmp.push({
-  //   ...message,
-  //   id: message.id || Date.now()
-  // });
-  // notifications$$.next(tmp);
-  // setTimeout(() => {
-  //   removeNotification(message.id);
-  // }, delay);
+  if (notifications$$.closed || notifications$$.isStopped) {
+    return;
+  }
+
+  const tmp = [...notifications$$.getValue()];
+
+  tmp.push({
+    ...message,
+    id: message.id || Date.now()
+  });
+  notifications$$.next(tmp);
+  setTimeout(() => {
+    removeNotification(message.id);
+  }, delay);
 };
 
 // ----Компонент--------------------------------------------------------------------------------------------------------
@@ -83,22 +83,22 @@ const Notifications = () => {
 
   // -------------------------------------------------------------------------------------------------------------------
 
-  // /** Подписываемся на список уведомлений */
-  // useEffect(() => {
-  //   if (!sub || sub.closed) {
-  //     return;
-  //   }
-  //
-  //   const until = obstacle.current;
-  //
-  //   sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
-  //     setNotifications(data);
-  //   });
-  //
-  //   return () => {
-  //     until.next(true);
-  //   };
-  // }, [sub]);
+  /** Подписываемся на список уведомлений */
+  useEffect(() => {
+    if (!sub || sub.closed) {
+      return;
+    }
+
+    const until = obstacle.current;
+
+    sub.pipe(takeUntil(until)).subscribe((data: INotification[]) => {
+      setNotifications(data);
+    });
+
+    return () => {
+      until.next(true);
+    };
+  }, [sub]);
 
   // -------------------------------------------------------------------------------------------------------------------
   /** Список уведомлений TSX */

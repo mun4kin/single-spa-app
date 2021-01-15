@@ -15,12 +15,16 @@ import cloud5 from './assets/img/cloud5.png';
 import { getTeamPending } from './_store/actions/team.actions';
 import { getHistoryPending, getTasksPending } from './_store/actions/history.actions';
 import { IStore } from './_store';
-import { interval } from 'rxjs';
+import { BehaviorSubject, interval } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 // @ts-ignore
 import sound from './assets/mp3/1.mp3';
 import ReactAudioPlayer from 'react-audio-player';
 import Notifications from './components/atoms/Notifications';
+import { INotification } from './components/atoms/Notifications/Notifications';
+
+let notifications$$: BehaviorSubject<INotification[]> = new BehaviorSubject<INotification[]>([]);
+console.log(notifications$$);
 
 const App = (props: any) => {
   // -------------------------------------------------------------------------------------------------------------------
@@ -73,7 +77,7 @@ const App = (props: any) => {
       <div className={`app ${ready ? 'winter' : ''}`}>
         <AppHeader setReady={setReady} />
         <Router routes={routes} />
-        <Notifications />
+        {/*<Notifications />*/}
         <PopupMaker />
       </div>
     </>
